@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import NextImage from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import { useData } from "@/components/DataContext";
 import { getTranslated } from "@/db/mockData";
@@ -79,7 +80,7 @@ export default function EventsPage() {
                   >
                     {evt.image_url && (
                       <div className="relative w-full sm:w-44 aspect-video sm:aspect-square bg-gray-50 shrink-0 border-r border-gray-100 overflow-hidden">
-                        <img src={evt.image_url} alt="" className="object-cover w-[400px] h-[400px] aspect-square" />
+                        <NextImage src={evt.image_url} alt={getTranslated(evt, "title", language) || "Evento"} fill sizes="176px" className="object-cover" />
                       </div>
                     )}
                     <div className="p-6 flex flex-col justify-between text-left space-y-4">
@@ -185,7 +186,7 @@ export default function EventsPage() {
                 >
                   {evt.image_url && (
                     <div className="relative aspect-video w-full bg-gray-50 overflow-hidden">
-                      <img src={evt.image_url} alt="" className="object-cover w-[400px] h-[400px] aspect-square" />
+                      <NextImage src={evt.image_url} alt={getTranslated(evt, "title", language) || "Evento"} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                     </div>
                   )}
                   <div className="p-5 flex flex-col justify-between flex-1 space-y-3">
@@ -224,10 +225,12 @@ export default function EventsPage() {
                   key={photo.id}
                   className="group relative aspect-square rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 shadow-sm"
                 >
-                  <img
+                  <NextImage
                     src={photo.url}
                     alt={photo.title}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3 text-center">
                     <span className="text-white text-xs font-bold font-display leading-snug">

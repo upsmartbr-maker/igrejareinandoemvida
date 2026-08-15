@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import { useData } from "@/components/DataContext";
 import { getTranslated } from "@/db/mockData";
@@ -209,7 +210,7 @@ export default function ContentPage() {
                 >
                   {post.image_url && (
                     <div className="relative aspect-video w-full bg-gray-50 border-b border-gray-100">
-                      <img src={post.image_url} alt="" className="object-cover w-full h-full" />
+                      <Image src={post.image_url} alt={getTranslated(post, "title", language) || "Notícia"} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                     </div>
                   )}
                   <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">

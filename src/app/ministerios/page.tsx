@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import { useData } from "@/components/DataContext";
 import { getTranslated, ShopItem, MinistryPost } from "@/db/mockData";
@@ -103,7 +104,7 @@ export default function MinistriesPage() {
                 >
                   {post.media_url && (
                     <div className="relative aspect-video w-full bg-gray-100 border-b border-gray-100">
-                      <img src={post.media_url} alt="" className="object-cover w-full h-full" />
+                      <Image src={post.media_url} alt={title || "Ministério"} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                     </div>
                   )}
                   <div className="p-6 flex flex-col justify-between flex-1 space-y-4">
@@ -163,7 +164,7 @@ export default function MinistriesPage() {
                 className="bg-white rounded-3xl overflow-hidden border border-primary-main/5 shadow-sm flex flex-col hover:shadow-md transition-shadow justify-between"
               >
                 <div className="relative aspect-square w-full bg-gray-50">
-                  <img src={item.image_url} alt="" className="object-cover w-full h-full" />
+                  <Image src={item.image_url} alt={title || "Produto"} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                   <div className="absolute top-4 right-4 shadow-md">
                     <span className={`px-3 py-1 rounded-full text-xs font-bold tracking-wider ${
                       isFree ? "bg-green-600 text-white" : "bg-primary-main text-accent-gold"

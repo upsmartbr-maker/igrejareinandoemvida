@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage, Language } from "./LanguageContext";
 import { useData } from "./DataContext";
@@ -54,10 +55,13 @@ export default function Navbar() {
           {/* Logo Container */}
           <div className="flex-shrink-0 mr-8">
             <Link href="/" className="flex items-center gap-2">
-              <img 
+              <Image 
                 src="/images/logo.png" 
                 alt="Logo Reinando em Vida" 
-                className="w-[50px] h-[50px] object-contain"
+                width={50}
+                height={50}
+                className="object-contain"
+                priority
               />
               <div className="flex flex-col">
                 <span className="text-white font-display font-extrabold text-base tracking-wider leading-none">

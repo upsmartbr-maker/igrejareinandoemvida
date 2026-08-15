@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "./LanguageContext";
 import { useData } from "./DataContext";
 import { Mail, Phone, ShieldCheck } from "lucide-react";
@@ -41,10 +42,12 @@ export default function Footer() {
           {/* Col 1: About Info */}
           <div className="flex flex-col text-left col-span-1 md:col-span-1.5">
             <div className="flex items-center gap-2 mb-4">
-              <img 
+              <Image 
                 src="/images/logo.png" 
                 alt="Logo Reinando em Vida" 
-                className="w-9 h-9 object-contain bg-white/10 rounded-lg p-0.5"
+                width={36}
+                height={36}
+                className="object-contain bg-white/10 rounded-lg p-0.5"
               />
               <span className="text-white font-display font-extrabold text-sm tracking-widest uppercase">
                 REINANDO EM VIDA

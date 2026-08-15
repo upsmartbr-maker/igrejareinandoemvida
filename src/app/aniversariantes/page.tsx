@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import { useData } from "@/components/DataContext";
 import { Cake, Calendar, Gift, ChevronRight, User } from "lucide-react";
@@ -111,9 +112,11 @@ export default function AniversariantesPage() {
                     {/* Circle Photo Container */}
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-emerald-800/30 group-hover:border-accent-gold/40 transition-colors flex items-center justify-center bg-[#08140C] shadow-inner shrink-0">
                       {b.image_url ? (
-                        <img
+                        <Image
                           src={b.image_url}
                           alt={b.name}
+                          width={80}
+                          height={80}
                           className="w-full h-full object-cover aspect-square"
                         />
                       ) : (

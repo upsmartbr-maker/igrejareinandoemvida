@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import { useData } from "@/components/DataContext";
 import { getTranslated } from "@/db/mockData";
@@ -73,10 +74,12 @@ export default function AboutPage() {
       {/* Pastor Message Section */}
       <section className="bg-white rounded-3xl p-6 md:p-8 border border-primary-main/5 shadow-sm space-y-6">
         <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-accent-gold bg-gray-50 shadow-md">
-            <img
+          <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-accent-gold bg-gray-50 shadow-md">
+            <Image
               src={settings.pastor_image_url || "/images/pastor_samuel.png"}
               alt={settings.pastor_name || "Pr. Samuel Rodrigues"}
+              width={96}
+              height={96}
               className="object-cover w-full h-full"
             />
           </div>
